@@ -52,6 +52,15 @@ export class MediaService {
     return this.http.get(this.apiUrl + '/users/user', settings);
   }
 
+  postUserFile(formData) {
+    const settings = {
+      headers: new HttpHeaders().set('x-access-token',
+        localStorage.getItem('token')),
+    };
+
+    return this.http.post(this.apiUrl + '/media', formData, settings);
+  }
+
   public register(user) {
     return this.http.post(this.apiUrl + '/users', user);
   }
